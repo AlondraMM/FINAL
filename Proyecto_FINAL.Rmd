@@ -1,8 +1,12 @@
 ---
 title: "Modelando la probabilidad de incumplimiento"
-author: "Alondra Matos, María López"
+author: "Alondra Matos"
 date: "2023-12-03"
-output: html_document
+output: 
+  html_document:
+    theme: cerulean
+    toc: true
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
@@ -14,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE,warning=FALSE, comment=NA, message = FALSE)
 ```{r,echo=FALSE}
 #setwd("D:/ComputoEstadistico/Proyecto")
 setwd("C:/Users/Alondra/OneDrive/Escritorio/ComputoEstadistico/Proyecto/FINAL")
-datos <- read.csv("loan_data_2007_2014.csv")
+datos <- read.csv("C:/Users/Alondra/OneDrive/Escritorio/ComputoEstadistico/Proyecto/loan_data_2007_2014.csv")
 
 ### Variables a considerar
 # Variables numéricas
@@ -139,7 +143,6 @@ set.seed(15)
 idx_train <- sample.int(n=nrow(datos),size=nrow(datos)*0.8,replace = FALSE)
 train <- datos[idx_train,]
 test <- datos[-idx_train,]
-sum(is.na(train$annual_inc))
 
 # Importe a excel:
 #write.csv(datos,"datos.csv")
